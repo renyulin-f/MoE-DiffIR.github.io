@@ -190,23 +190,23 @@
     <!-- Competition. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">CIR Dataset</h2>
+        <h2 class="title is-3">CIR Dataset Information</h2>
         <div class="content has-text-justified">
           <p>
-            We propose a comprehensive benchmark dataset for universal compressed image restoration(CIR), covering 21 types of degradations
-            from 7 popular traditional and learned codecs. Traditional codecs includes JPEG, VVC, HEVC, WEBP. Learned codecs includes HIFIC, \( C_{\text{SSIM}} \), \( C_{\text{SSIM}} \). Within each codec, we 
-            apply three levels distortions. 
+            We propose a comprehensive benchmark dataset for universal compressed image restoration (CIR), covering 21 types of degradations
+            from 7 popular traditional and learned codecs. Traditional codecs includes JPEG</sup><a href="https://dl.acm.org/doi/abs/10.1145/103085.103089">[1]</a></sup>, VVC</sup><a href="https://ieeexplore.ieee.org/abstract/document/9503377">[2]</a></sup>, HEVC</sup><a href="https://link.springer.com/content/pdf/10.1007/978-3-319-06895-4.pdf">[3]</a></sup>, WEBP</sup><a href="https://developers.google.com/speed/webp/docs/compression?hl=zh-cn">[4]</a></sup>. Learned codecs includes HIFIC</sup><a href="https://arxiv.org/abs/2006.09965">[5]</a></sup>, \( C_{\text{SSIM}} \)</sup><a href="https://arxiv.org/abs/2001.01568">[6]</a></sup>, \( C_{\text{SSIM}} \)</sup><a href="https://arxiv.org/abs/2001.01568">[6]</a></sup>. Within each codec, we 
+            apply three levels distortions:
             <ul>
                 <li>JPEG: QF=10,15,20</li>
                 <li>VVC: QP=37,42,47</li>
                 <li>HEVC: QP=37,42,47</li>
                 <li>WEBP: QF=1,5,10</li>
-                <li>HIFIC: Mode='low', 'medium', 'high'</li>
+                <li>HIFIC: Mode='low', 'med', 'high'</li>
                 <li>\( C_{\text{SSIM}} \): Mode=1,2,3</li>
                 <li>\( C_{\text{PSNR}} \): Mode=1,3,3</li>
             </ul>
-            Here we release the <a href="https://drive.google.com/file/d/15RNhqaOVUYWA6xy_sIw6fC8jDX1hLbL8/view?usp=sharing">datalink</a> of CIR dataset including training datasets and tests datasets.
-            The branch of this dataset is shown in following figure.
+            We utilize DF2K</sup><a href="https://openaccess.thecvf.com/content_cvpr_2017_workshops/w12/html/Agustsson_NTIRE_2017_Challenge_CVPR_2017_paper.html">[7]</a></sup>, as our primary dataset, and all compression codecs are applied to it. Here we release the <a href="https://drive.google.com/file/d/15RNhqaOVUYWA6xy_sIw6fC8jDX1hLbL8/view?usp=sharing">datalink</a> of CIR dataset including training datasets and tests datasets.
+            The branch of this dataset is shown in following figure. The dataset comprises training and testing sets. In the training set, "DF2K_HR" contains the ground truth (GT) images, while the other folders correspond to 21 types of low-quality (LQ) images resulting from various compression distortions. The five testing sets also include folders corresponding to the 21 types of compressed LQ images, as well as folders for the high-resolution (HR) images.
           </p>
             <img src="./imgs/Data_branch.png"
                  class="interpolation-image"
@@ -238,14 +238,68 @@
 </section>
 
 
+
+
+</section>
+
+<!-- Concurrent Work. -->
+<div class="section">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Reference</h2>
+
+    <div class="content has-text-justified">
+      <p>
+        [1] Wallace, G.K.: The jpeg still picture compression standard. Communications of the ACM 34(4), 30–44 (1991)
+      </p>
+      <p>
+        [2] Bross, B., Wang, Y.K., Ye, Y., Liu, S., Chen, J., Sullivan, G.J., Ohm, J.R.: Overview of the versatile video coding (vvc) standard and its applications. IEEE Transactions on Circuits and Systems for Video Technology 31(10), 3736–3764 (2021)
+      </p>
+      <p>
+        [3] Sze, V., Budagavi, M. and Sullivan, G.J., 2014. High efficiency video coding (HEVC). In Integrated circuit and systems, algorithms and architectures (Vol. 39, p. 40). Berlin, Germany: Springer.
+      </p>
+      <p>
+        [4] Ginesu, G., Pintus, M., Giusto, D.D.: Objective assessment of the webp image coding algorithm. Signal processing: image communication 27(8), 867–874 (2012)
+      </p>
+      <p>
+        [5] Mentzer, F., Toderici, G.D., Tschannen, M. and Agustsson, E., 2020. High-fidelity generative image compression. Advances in Neural Information Processing Systems, 33, pp.11913-11924.
+      </p>
+      <p>
+        [6] Cheng, Z., Sun, H., Takeuchi, M. and Katto, J., 2020. Learned image compression with discretized gaussian mixture likelihoods and attention modules. In Proceedings of the IEEE/CVF conference on computer vision and pattern recognition (pp. 7939-7948).
+      <p>
+        [7] Agustsson, E., Timofte, R.: Ntire 2017 challenge on single image super-resolution: Dataset and study. In: Proceedings of the IEEE conference on computer vision and pattern recognition workshops. pp. 126–135 (2017)
+      </p>
+    </div>
+  </div>
+</div>
+<!--/ Concurrent Work. -->
+
+</div>
+</section>
+
+
+
+
+
+
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>
-
+      @inproceedings{ren2024MoE-DiffIR,
+        title={MoE-DiffIR: Task-customized Diffusion Priors for Universal Compressed Image Restoration},
+        author={Ren, Li and Li, Wang and Guo, Zhao and Zhang, Chen},
+        booktitle={European Conference on Computer Vision},
+        year={2024},
+        organization={Springer}
+      }
     </code></pre>
   </div>
 </section>
+
+
+
+
+
 
 
 <footer class="footer">
