@@ -123,7 +123,7 @@
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href=""
+                <a href="https://arxiv.org/abs/2407.10833"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -132,7 +132,7 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href=""
+                <a href="https://arxiv.org/abs/2407.10833"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -153,7 +153,7 @@
               </span>
               <!-- Dataset Link. -->
               <span class="link-block">
-                <a href="https://drive.google.com/file/d/15RNhqaOVUYWA6xy_sIw6fC8jDX1hLbL8/view?usp=sharing"
+                <a href="https://drive.google.com/drive/folders/1Kn8SjJWpHITHlg5kuL1Ur7Ml-WNJJ064"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="far fa-images"></i>
@@ -205,14 +205,14 @@
                 <li>\( C_{\text{SSIM}} \): Mode=1,2,3</li>
                 <li>\( C_{\text{PSNR}} \): Mode=1,3,3</li>
             </ul>
-            Our CIR dataset is based on DF2K</sup><a href="https://openaccess.thecvf.com/content_cvpr_2017_workshops/w12/html/Agustsson_NTIRE_2017_Challenge_CVPR_2017_paper.html">[7]</a></sup>, with the original DF2K images considered as the ground truth. All compression codecs are applied to these images. Here we release the <a href="https://drive.google.com/file/d/15RNhqaOVUYWA6xy_sIw6fC8jDX1hLbL8/view?usp=sharing">datalink</a> of CIR dataset including training datasets and tests datasets.
-            The branch of this dataset is shown in following figure. The dataset comprises training and testing sets. In the training set, "DF2K_HR" contains the ground truth (GT) images, while the other folders correspond to 21 types of low-quality (LQ) images resulting from various compression distortions. The five testing sets also include folders corresponding to the 21 types of compressed LQ images, as well as folders for the high-resolution (HR) images.
+            Our CIR dataset is based on DF2K</sup><a href="https://openaccess.thecvf.com/content_cvpr_2017_workshops/w12/html/Agustsson_NTIRE_2017_Challenge_CVPR_2017_paper.html">[7]</a></sup>, with the original DF2K images considered as the ground truth. All compression codecs are applied to these images. Here we release the <a href="https://drive.google.com/drive/folders/1Kn8SjJWpHITHlg5kuL1Ur7Ml-WNJJ064">datalink</a> of CIR dataset including 'CIR_datasets' and 'CIR_Unseen_Tasks'.
+            The 'CIR_Dataset' branch of this dataset is shown in following figure. The dataset comprises training and testing sets. In the training set, "DF2K_HR" contains the ground truth (GT) images, while the other folders correspond to 21 types of low-quality (LQ) images resulting from various compression distortions. The five testing sets also include folders corresponding to the 21 types of compressed LQ images, as well as folders for the high-resolution (HR) images.
           </p>
             <img src="./imgs/Data_branch.png"
                  class="interpolation-image"
                  alt="competition."/>
           <p>
-            We also release unseen tasks testsets apart from CIR dataset. It consists of "Cross Degrees" and "Cross Types". We choose JPEG code from QF value [5,25]
+            The 'CIR_Unseen_Tasks' branch consists of "Cross Degrees" and "Cross Types". We choose JPEG code from QF value [5,25]
             and select AVC(H.264) codec from vaules [47,42,37]. The branch is shown in following figure.         
           </p>
           <img src="./imgs/Data_branch2.png"
