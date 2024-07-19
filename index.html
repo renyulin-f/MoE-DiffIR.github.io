@@ -295,46 +295,32 @@
 </section>
 
 
-
-
-
-<section class="hero is-small">
+<!-- <section class="hero is-small">
   <div class="hero-body">
     <div class="container is-max-desktop has-text-centered">
-      <!-- The expanding image container -->
-      <div class="tab_container">
+
+      <!-- <div class="tab_container">
         <div id="juxtapose-embed" data-startingposition="30%" data-animate="true" class="juxtapose"
           style="height: 800px; width: 800px;">
         </div>
         <div>
           <div id="juxtapose-hidden"></div>
         </div>
-        <!-- Image text -->
+
         <div id="imgtext"></div>
       </div>
-      <!-- The grid: four columns -->
+
       <div class="tab_row">
         <div class="tab_column">
-          <img src="imgs/1_LQ.png" onclick="tab_gallery_click('1');">
+          <img src="./imgs/1_LQ.png" onclick="tab_gallery_click('1');">
         </div>
         <div class="tab_column">
-          <img src="imgs/2_LQ.png" onclick="tab_gallery_click('2');">
+          <img src="./imgs/2_LQ.png" onclick="tab_gallery_click('2');">
         </div>
       </div>
     </div>
   </div>
-</section>
-
-
-
-
-
-
-
-
-
-
-
+</section> --> 
 
 
 
@@ -396,7 +382,6 @@
 
 
 
-
 <script>
   var slider;
   let origImages = [
@@ -423,10 +408,8 @@ function tab_gallery_click(name) {
   let outputImage = {
     label: "MoE-DiffIR",
   };
-
-  inputImage.src = "imgs/".concat(name, "_LQ", ".png")
-  outputImage.src = "imgs/".concat(name, "_HQ", ".png")
-
+  inputImage.src = "./imgs/".concat(name, "_LQ", ".png")
+  outputImage.src = "./imgs/".concat(name, "_HQ", ".png")
   let images = [inputImage, outputImage];
   let options = slider.options;
   options.callback = function (obj) {
@@ -438,7 +421,6 @@ function tab_gallery_click(name) {
     //newNode.removeChild(newNode.children[0]);
 
   };
-
   slider = new juxtapose.JXSlider(transientSelector, images, options);
 };
 
