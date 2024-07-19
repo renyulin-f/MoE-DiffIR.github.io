@@ -16,12 +16,10 @@
     function gtag() {
       dataLayer.push(arguments);
     }
-
     gtag('js', new Date());
 
     gtag('config', 'G-PYVRSFMDRL');
   </script>
-
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
 
@@ -42,6 +40,12 @@
   <script type="text/javascript" async
     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
+  <link rel="stylesheet" href="../static/css/tab_gallery.css">
+  <link rel="stylesheet" href="../static/css/juxtapose.css">
+  <!-- <script src="./static/js/index.js"></script> -->
+  <!-- <link rel="stylesheet" href="./menlo"> -->
+  <link rel="stylesheet" href="../static/css/image_card_fader.css">
+  <link rel="stylesheet" href="../static/css/image_card_slider.css">
 </head>
 <body>
 
@@ -271,10 +275,6 @@
   </div>
 </section>
 
-
-
-
-
 <section class="section">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
@@ -291,14 +291,55 @@
         </div>
       </div>
     </div>
-    <!--/ Abstract. -->
   </div>
 </section>
 
 
+
+
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop has-text-centered">
+      <!-- The expanding image container -->
+      <div class="tab_container">
+        <div id="juxtapose-embed" data-startingposition="30%" data-animate="true" class="juxtapose"
+          style="height: 800px; width: 800px;">
+        </div>
+        <div>
+          <div id="juxtapose-hidden"></div>
+        </div>
+        <!-- Image text -->
+        <div id="imgtext"></div>
+      </div>
+      <!-- The grid: four columns -->
+      <div class="tab_row">
+        <div class="tab_column">
+          <img src="imgs/1_LQ.png" onclick="tab_gallery_click('1');">
+        </div>
+        <div class="tab_column">
+          <img src="imgs/2_LQ.png" onclick="tab_gallery_click('2');">
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- Concurrent Work. -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
 <div class="section">
   <div class="container is-max-desktop content">
     <h2 class="title">Reference</h2>
@@ -356,6 +397,98 @@
 
 
 
+<script>
+  var slider;
+  let origImages = [
+    { "src": "imgs/1_HQ.png", "label": "Zoomed LQ", },
+    { "src": "imgs/1_LQ.png", "label": "MoE-DiffIR", }
+  ];
+  let origOptions = {
+    "makeResponsive": true,
+    "showLabels": true,
+    "mode": "horizontal",
+    "showCredits": true,
+    "animate": true,
+    "startingPosition": "50"
+  };
+
+  const juxtaposeSelector = "#juxtapose-embed";
+  const transientSelector = "#juxtapose-hidden";
+
+function tab_gallery_click(name) {
+  // Get the expanded image
+  let inputImage = {
+    label: "Zoomed LQ",
+  };
+  let outputImage = {
+    label: "MoE-DiffIR",
+  };
+
+  inputImage.src = "imgs/".concat(name, "_LQ", ".png")
+  outputImage.src = "imgs/".concat(name, "_HQ", ".png")
+
+  let images = [inputImage, outputImage];
+  let options = slider.options;
+  options.callback = function (obj) {
+    var newNode = document.getElementById(obj.selector.substring(1));
+    var oldNode = document.getElementById(juxtaposeSelector.substring(1));
+    console.log(obj.selector.substring(1));
+    console.log(newNode.children[0]);
+    oldNode.replaceChild(newNode.children[0], oldNode.children[0]);
+    //newNode.removeChild(newNode.children[0]);
+
+  };
+
+  slider = new juxtapose.JXSlider(transientSelector, images, options);
+};
+
+
+
+
+
+(function () {
+  slider = new juxtapose.JXSlider(
+    juxtaposeSelector, origImages, origOptions);
+  //document.getElementById("left-button").onclick = replaceLeft;
+  //document.getElementById("right-button").onclick = replaceRight;
+})();
+// Get the image text
+var imgText = document.getElementById("imgtext");
+// Use the same src in the expanded image as the image being clicked on from the grid
+// expandImg.src = imgs.src;
+// Use the value of the alt attribute of the clickable image as text inside the expanded image
+imgText.innerHTML = name;
+// Show the container element (hidden with CSS)
+// expandImg.parentElement.style.display = "block";
+
+$(".flip-card").click(function () {
+  console.log("fading in")
+  div_back = $(this).children().children()[1]
+  div_front = $(this).children().children()[0]
+  // console.log($(this).children("div.flip-card-back"))
+  console.log(div_back)
+  $(div_front).addClass("out");
+  $(div_front).removeClass("in");
+
+  $(div_back).addClass("in");
+  $(div_back).removeClass("out");
+
+});
+
+$(".flip-card").mouseleave(function () {
+  console.log("fading in")
+  div_back = $(this).children().children()[1]
+  div_front = $(this).children().children()[0]
+  // console.log($(this).children("div.flip-card-back"))
+  console.log(div_back)
+  $(div_front).addClass("in");
+  $(div_front).removeClass("out");
+
+  $(div_back).addClass("out");
+  $(div_back).removeClass("in");
+
+});
+</script>
 
 
 <footer class="footer">
@@ -386,6 +519,8 @@
     </div>
   </div>
 </footer>
-
 </body>
 </html>
+
+
+
